@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Headsup B2B — Revenue Tracking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/revenue.css" />
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="brand-mark">HB</div>
+        <div class="brand-text">
+          <div class="brand-name">Headsup B2B</div>
+          <div class="brand-sub">Revenue Tracking · FY25-26</div>
+        </div>
+      </div>
+      <div class="header-nav">
+        <a href="index.html" class="nav-link">Dashboard</a>
+        <a href="revenue.html" class="nav-link active">Revenue</a>
+        <a href="upload.html" class="nav-link">Upload</a>
+      </div>
+    </header>
+
+    <!-- REVENUE KPI CARDS -->
+    <div class="section-label">Revenue Overview</div>
+    <div class="kpi-grid kpi-grid-4">
+      <div class="kpi-card accent">
+        <div class="kpi-label">Total Revenue</div>
+        <div class="kpi-value orange" id="kpiTotalRevenue"></div>
+        <div class="kpi-sub" id="kpiTotalRevenueSub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Annual Target</div>
+        <div class="kpi-value teal" id="kpiAnnualTarget"></div>
+        <div class="kpi-sub" id="kpiTargetAchieved"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Collection Rate</div>
+        <div class="kpi-value" id="kpiCollectionRate"></div>
+        <div class="kpi-sub" id="kpiCollectionSub"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Best Month</div>
+        <div class="kpi-value" id="kpiBestMonth"></div>
+        <div class="kpi-sub" id="kpiBestMonthSub"></div>
+      </div>
+    </div>
+
+    <!-- REVENUE TREND + QUARTERLY -->
+    <div class="main-grid">
+      <div class="card">
+        <div class="card-title">
+          Monthly Revenue — Target vs Actual
+          <div class="chart-legend">
+            <span class="legend-pill orange-pill">Target</span>
+            <span class="legend-pill teal-pill">Actual</span>
+            <span class="legend-pill purple-pill">Collected</span>
+          </div>
+        </div>
+        <div class="rev-chart" id="revChart"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          Quarterly Achievement
+          <span class="card-badge">FY26</span>
+        </div>
+        <div id="quarterlyBars"></div>
+        <div class="quarterly-summary" id="quarterlySummary"></div>
+      </div>
+    </div>
+
+    <!-- BOTTOM GRID -->
+    <div class="bottom-grid bottom-grid-2">
+      <div class="card">
+        <div class="card-title">Revenue by Source</div>
+        <div id="sourceBars"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          Cumulative Revenue Tracker
+          <span class="card-badge">YTD</span>
+        </div>
+        <div class="cumulative-chart" id="cumulativeChart"></div>
+        <div class="cumulative-legend">
+          <div class="section-label" style="margin-top:14px;margin-bottom:8px;">Legend</div>
+          <div class="cumulative-legend-pills">
+            <span><span class="dot" style="background:var(--orange)"></span>Cumulative Target</span>
+            <span><span class="dot" style="background:var(--teal)"></span>Cumulative Actual</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MONTHLY DETAIL TABLE -->
+    <div class="card" style="margin-top:18px;">
+      <div class="card-title">Monthly Revenue Detail</div>
+      <table class="rev-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Target</th>
+            <th>Actual</th>
+            <th>Collected</th>
+            <th>Variance</th>
+            <th>Achievement</th>
+          </tr>
+        </thead>
+        <tbody id="revDetailTable"></tbody>
+        <tfoot id="revDetailFoot"></tfoot>
+      </table>
+    </div>
+
+  </div><!-- /wrapper -->
+
+  <script src="data/scorecard.js"></script>
+  <script src="js/revenue.js"></script>
+</body>
+</html>

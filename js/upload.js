@@ -123,12 +123,53 @@
     tbody.appendChild(tr);
   }
 
+  function addRevenueRow(d) {
+    var tbody = $('#tblRevenue tbody');
+    var tr = document.createElement('tr');
+    var cells = [
+      { type: 'text', val: d ? d.month : '', ph: "e.g. Apr'25" },
+      { type: 'number', val: d ? d.target : '', ph: '0.0' },
+      { type: 'number', val: d ? d.actual : '', ph: '0.0' },
+      { type: 'number', val: d ? d.collected : '', ph: '0.0' }
+    ];
+    cells.forEach(function (c) {
+      var td = document.createElement('td');
+      td.appendChild(makeInput(c.type, c.val, c.ph));
+      tr.appendChild(td);
+    });
+    var tdDel = document.createElement('td');
+    tdDel.appendChild(makeDeleteBtn(tr));
+    tr.appendChild(tdDel);
+    tbody.appendChild(tr);
+  }
+
+  function addSourceRow(d) {
+    var tbody = $('#tblSources tbody');
+    var tr = document.createElement('tr');
+    var cells = [
+      { type: 'text', val: d ? d.source : '', ph: 'Source name' },
+      { type: 'number', val: d ? d.amount : '', ph: '0.0' },
+      { type: 'number', val: d ? d.pct : '', ph: '0.0' }
+    ];
+    cells.forEach(function (c) {
+      var td = document.createElement('td');
+      td.appendChild(makeInput(c.type, c.val, c.ph));
+      tr.appendChild(td);
+    });
+    var tdDel = document.createElement('td');
+    tdDel.appendChild(makeDeleteBtn(tr));
+    tr.appendChild(tdDel);
+    tbody.appendChild(tr);
+  }
+
   // --------------- Load existing data ---------------
   if (typeof DATA !== 'undefined') {
     DATA.monthly.forEach(function (d) { addMonthlyRow(d); });
     DATA.team.forEach(function (d) { addTeamRow(d); });
     DATA.categories.forEach(function (d) { addCategoryRow(d); });
     DATA.contributions.forEach(function (d) { addContribRow(d); });
+    if (DATA.revenue) DATA.revenue.forEach(function (d) { addRevenueRow(d); });
+    if (DATA.revenueSources) DATA.revenueSources.forEach(function (d) { addSourceRow(d); });
   }
 
   // --------------- Add-row buttons ---------------
@@ -136,6 +177,8 @@
   $('#addTeamRow').addEventListener('click', function () { addTeamRow(); });
   $('#addCatRow').addEventListener('click', function () { addCategoryRow(); });
   $('#addContribRow').addEventListener('click', function () { addContribRow(); });
+  $('#addRevenueRow').addEventListener('click', function () { addRevenueRow(); });
+  $('#addSourceRow').addEventListener('click', function () { addSourceRow(); });
 
   // --------------- Read table data ---------------
 
@@ -169,7 +212,15 @@
       return { name: r[0], total: r[1], sales: r[2], procurement: r[3], others: r[4], salesOps: r[5] };
     }).filter(function (d) { return d.name; });
 
-    return { monthly: monthly, team: team, categories: categories, contributions: contributions };
+    var revenue = readTable('tblRevenue').map(function (r) {
+      return { month: r[0], target: r[1], actual: r[2], collected: r[3] };
+    }).filter(function (d) { return d.month; });
+
+    var revenueSources = readTable('tblSources').map(function (r) {
+      return { source: r[0], amount: r[1], pct: r[2] };
+    }).filter(function (d) { return d.source; });
+
+    return { monthly: monthly, team: team, categories: categories, contributions: contributions, revenue: revenue, revenueSources: revenueSources };
   }
 
   // --------------- Export / Save ---------------
@@ -208,6 +259,24 @@
       var comma = i < data.contributions.length - 1 ? ',' : '';
       lines.push('    { name: "' + d.name + '", total: ' + d.total + ', sales: ' + d.sales +
         ', procurement: ' + d.procurement + ', others: ' + d.others + ', salesOps: ' + d.salesOps + ' }' + comma);
+    });
+    lines.push('  ],', '');
+
+    // revenue
+    lines.push('  // Monthly revenue tracking (in Lakhs)');
+    lines.push('  revenue: [');
+    data.revenue.forEach(function (d, i) {
+      var comma = i < data.revenue.length - 1 ? ',' : '';
+      lines.push('    { month: "' + d.month + '", target: ' + d.target + ', actual: ' + d.actual + ', collected: ' + d.collected + ' }' + comma);
+    });
+    lines.push('  ],', '');
+
+    // revenueSources
+    lines.push('  // Revenue by source/channel (in Lakhs)');
+    lines.push('  revenueSources: [');
+    data.revenueSources.forEach(function (d, i) {
+      var comma = i < data.revenueSources.length - 1 ? ',' : '';
+      lines.push('    { source: "' + d.source + '", amount: ' + d.amount + ', pct: ' + d.pct + ' }' + comma);
     });
     lines.push('  ]');
 
@@ -256,6 +325,12 @@
   });
   $('#dlContributions').addEventListener('click', function () {
     downloadCSV('contributions.csv', ['Name', 'Total', 'Sales', 'Procurement', 'Others', 'SalesOps'], readTable('tblContributions'));
+  });
+  $('#dlRevenue').addEventListener('click', function () {
+    downloadCSV('revenue.csv', ['Month', 'Target_Lakhs', 'Actual_Lakhs', 'Collected_Lakhs'], readTable('tblRevenue'));
+  });
+  $('#dlSources').addEventListener('click', function () {
+    downloadCSV('revenue_sources.csv', ['Source', 'Amount_Lakhs', 'Percentage'], readTable('tblSources'));
   });
 
   // --------------- CSV Upload / Parse ---------------
@@ -326,6 +401,31 @@
       });
       $$('.tab')[3].click();
       showStatus('Loaded ' + csv.rows.length + ' contribution rows');
+    } else if (h.indexOf('target') > -1 && h.indexOf('actual') > -1 && h.indexOf('collected') > -1) {
+      // Revenue monthly
+      $('#tblRevenue tbody').innerHTML = '';
+      csv.rows.forEach(function (r) {
+        addRevenueRow({
+          month: r.month || r['month'],
+          target: parseFloat(r.target_lakhs || r.target || 0),
+          actual: parseFloat(r.actual_lakhs || r.actual || 0),
+          collected: parseFloat(r.collected_lakhs || r.collected || 0)
+        });
+      });
+      $$('.tab')[4].click();
+      showStatus('Loaded ' + csv.rows.length + ' revenue rows');
+    } else if (h.indexOf('source') > -1 && h.indexOf('amount') > -1) {
+      // Revenue sources
+      $('#tblSources tbody').innerHTML = '';
+      csv.rows.forEach(function (r) {
+        addSourceRow({
+          source: r.source,
+          amount: parseFloat(r.amount_lakhs || r.amount || 0),
+          pct: parseFloat(r.percentage || r.pct || 0)
+        });
+      });
+      $$('.tab')[5].click();
+      showStatus('Loaded ' + csv.rows.length + ' revenue source rows');
     } else {
       showStatus('Could not detect CSV format. Check column headers.', true);
     }

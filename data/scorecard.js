@@ -49,5 +49,38 @@ var DATA = {
     { name: "Priya",  total: 87.3,  sales: 26.19, procurement: 26.19, others: 26.19, salesOps: 8.73  },
     { name: "Ankit",  total: 72.1,  sales: 21.63, procurement: 21.63, others: 21.63, salesOps: 7.21  },
     { name: "Neha",   total: 65.8,  sales: 19.74, procurement: 19.74, others: 19.74, salesOps: 6.58  }
+  ],
+
+  // Monthly revenue tracking (in Lakhs)
+  revenue: [
+    { month: "Apr'25", target: 48,  actual: 42.5,  collected: 39.8  },
+    { month: "May'25", target: 52,  actual: 50.3,  collected: 46.7  },
+    { month: "Jun'25", target: 55,  actual: 56.1,  collected: 52.4  },
+    { month: "Jul'25", target: 55,  actual: 53.8,  collected: 50.1  },
+    { month: "Aug'25", target: 60,  actual: 62.4,  collected: 58.9  },
+    { month: "Sep'25", target: 62,  actual: 65.7,  collected: 61.3  },
+    { month: "Oct'25", target: 68,  actual: 71.2,  collected: 67.5  },
+    { month: "Nov'25", target: 65,  actual: 68.9,  collected: 64.2  },
+    { month: "Dec'25", target: 72,  actual: 74.6,  collected: 70.1  },
+    { month: "Jan'26", target: 80,  actual: 88.3,  collected: 82.7  },
+    { month: "Feb'26", target: 70,  actual: 67.8,  collected: 63.4  },
+    { month: "Mar'26", target: 63,  actual: 58.2,  collected: 54.1  }
+  ],
+
+  // Revenue by source/channel (in Lakhs)
+  revenueSources: [
+    { source: "Direct Sales",     amount: 298.5, pct: 40.2 },
+    { source: "Channel Partners", amount: 186.3, pct: 25.1 },
+    { source: "Repeat Clients",   amount: 134.7, pct: 18.1 },
+    { source: "Referrals",        amount: 78.4,  pct: 10.6 },
+    { source: "Online Leads",     amount: 44.6,  pct: 6.0  }
+  ],
+
+  // Quarterly revenue targets and actuals (in Lakhs)
+  quarterlyRevenue: [
+    { quarter: "Q1 FY26", target: 155, actual: 148.9, achieved: 96.1  },
+    { quarter: "Q2 FY26", target: 177, actual: 181.9, achieved: 102.8 },
+    { quarter: "Q3 FY26", target: 205, actual: 214.7, achieved: 104.7 },
+    { quarter: "Q4 FY26", target: 213, actual: 214.3, achieved: 100.6 }
   ]
 };

@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/revenue.css" />
   <link rel="stylesheet" href="css/upload.css" />
 </head>
 <body>
@@ -24,7 +25,11 @@
         </div>
       </div>
       <div class="header-actions">
-        <a href="index.html" class="btn btn-ghost">View Dashboard</a>
+        <div class="header-nav">
+          <a href="index.html" class="nav-link">Dashboard</a>
+          <a href="revenue.html" class="nav-link">Revenue</a>
+          <a href="upload.html" class="nav-link active">Upload</a>
+        </div>
         <button class="btn btn-primary" id="btnExport">Export &amp; Save</button>
       </div>
     </header>
@@ -49,6 +54,8 @@
       <button class="tab" data-tab="team">Team Rankings</button>
       <button class="tab" data-tab="categories">Categories</button>
       <button class="tab" data-tab="contributions">Contributions</button>
+      <button class="tab" data-tab="revenue">Revenue</button>
+      <button class="tab" data-tab="revenueSources">Revenue Sources</button>
     </div>
 
     <!-- MONTHLY TABLE -->
@@ -143,6 +150,55 @@
               <th>Procurement (30%)</th>
               <th>Others (30%)</th>
               <th>Sales Ops (10%)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- REVENUE TABLE -->
+    <div class="tab-panel" id="panel-revenue">
+      <div class="panel-header">
+        <div class="section-label">Monthly Revenue — Target, Actual &amp; Collected (Lakhs)</div>
+        <div class="panel-actions">
+          <button class="btn btn-sm" id="addRevenueRow">+ Add Row</button>
+          <button class="btn btn-sm btn-ghost" id="dlRevenue">Download CSV</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="upload-table" id="tblRevenue">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Target (L)</th>
+              <th>Actual (L)</th>
+              <th>Collected (L)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- REVENUE SOURCES TABLE -->
+    <div class="tab-panel" id="panel-revenueSources">
+      <div class="panel-header">
+        <div class="section-label">Revenue by Source / Channel (Lakhs)</div>
+        <div class="panel-actions">
+          <button class="btn btn-sm" id="addSourceRow">+ Add Row</button>
+          <button class="btn btn-sm btn-ghost" id="dlSources">Download CSV</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="upload-table" id="tblSources">
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Amount (L)</th>
+              <th>Percentage %</th>
               <th></th>
             </tr>
           </thead>
