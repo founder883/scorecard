@@ -70,6 +70,27 @@ header {
   letter-spacing: 0.5px; margin-top: 1px;
 }
 .header-meta { text-align: right; }
+.topnav {
+  display: inline-flex;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 4px;
+  margin-bottom: 10px;
+}
+.topnav a {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border-radius: 22px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.topnav a:hover { color: var(--text); }
+.topnav a.active { background: var(--surface2); color: var(--orange); }
 .header-fy {
   font-family: var(--font-display);
   font-weight: 700; font-size: 1.5rem;

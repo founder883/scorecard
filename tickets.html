@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Headsup B2B — Employee Ticketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/tickets.css" />
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="brand-mark">HB</div>
+        <div class="brand-text">
+          <div class="brand-name">Headsup B2B</div>
+          <div class="brand-sub">Employee Help Desk · Ticketing</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Scorecard</a>
+        <a href="upload.html">Data Entry</a>
+        <a href="tickets.html" class="active">Help Desk</a>
+      </nav>
+    </header>
+
+    <!-- STATS -->
+    <div class="section-label">Help Desk Overview</div>
+    <div class="stat-grid" id="statGrid"></div>
+
+    <!-- TOOLBAR -->
+    <div class="toolbar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search tickets by subject, ID, requester…" />
+      </div>
+      <select class="filter-select" id="filterStatus">
+        <option value="">All Statuses</option>
+        <option value="Open">Open</option>
+        <option value="In Progress">In Progress</option>
+        <option value="On Hold">On Hold</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Closed">Closed</option>
+      </select>
+      <select class="filter-select" id="filterPriority">
+        <option value="">All Priorities</option>
+        <option value="Urgent">Urgent</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <select class="filter-select" id="filterCategory">
+        <option value="">All Categories</option>
+      </select>
+      <select class="filter-select" id="filterAssignee">
+        <option value="">All Assignees</option>
+        <option value="__unassigned__">Unassigned</option>
+      </select>
+      <div class="view-toggle">
+        <button id="viewBoard" class="active">Board</button>
+        <button id="viewList">List</button>
+      </div>
+      <button class="btn btn-primary" id="btnNew">+ New Ticket</button>
+      <button class="btn btn-ghost btn-sm" id="btnReset" title="Reset to demo data">Reset</button>
+    </div>
+
+    <!-- BOARD VIEW -->
+    <div class="board" id="boardView"></div>
+
+    <!-- LIST VIEW -->
+    <div class="list-wrap" id="listView" style="display:none;">
+      <table class="ticket-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th class="hide-sm">Requester</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th class="hide-sm">Assignee</th>
+            <th class="hide-sm">Due</th>
+          </tr>
+        </thead>
+        <tbody id="listBody"></tbody>
+      </table>
+    </div>
+
+  </div><!-- /wrapper -->
+
+  <!-- ===== NEW / EDIT TICKET MODAL ===== -->
+  <div class="overlay" id="modalOverlay"></div>
+  <div class="modal" id="ticketModal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">New Ticket</div>
+      <button class="modal-close" id="modalClose">&times;</button>
+    </div>
+    <form id="ticketForm">
+      <div class="form-group">
+        <label class="form-label" for="fSubject">Subject</label>
+        <input class="form-control" id="fSubject" type="text" placeholder="Brief summary of the issue or request" />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="fDescription">Description</label>
+        <textarea class="form-control" id="fDescription" placeholder="Provide details, steps to reproduce, or what you need…"></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fRequester">Requester</label>
+          <select class="form-control" id="fRequester"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fCategory">Category</label>
+          <select class="form-control" id="fCategory"></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="fPriority">Priority</label>
+          <select class="form-control" id="fPriority">
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="fAssignee">Assign to</label>
+          <select class="form-control" id="fAssignee"></select>
+        </div>
+      </div>
+      <div class="form-err" id="formErr"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="modalSubmit">Create Ticket</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ===== DETAIL DRAWER ===== -->
+  <div class="drawer" id="detailDrawer" role="dialog" aria-modal="true"></div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/tickets.js"></script>
+</body>
+</html>
