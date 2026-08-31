@@ -3,128 +3,577 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Headsup B2B — Sales Scorecard FY25-26</title>
+  <title>SunSquare — Rooftop Solar for Every Home</title>
+  <meta name="description" content="India's rooftop solar experts. Save up to 90% on electricity bills with panels installed in 7 days. 25-year warranty, 0% EMI, subsidy included." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <div class="wrapper">
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>India's #1 Rooftop Solar Company · 50,000+ Homes Powered</span>
+      <span class="topbar-phone">Call us: <a href="tel:+911800123456">1800-123-456</a></span>
+    </div>
+  </div>
 
-    <!-- HEADER -->
-    <header>
-      <div class="brand">
-        <div class="brand-mark">HB</div>
-        <div class="brand-text">
-          <div class="brand-name">Headsup B2B</div>
-          <div class="brand-sub">Sales Intelligence · FY25-26</div>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <circle cx="16" cy="16" r="6" fill="#FFB020"/>
+            <g stroke="#FFB020" stroke-width="2.4" stroke-linecap="round">
+              <line x1="16" y1="2"  x2="16" y2="6"/>
+              <line x1="16" y1="26" x2="16" y2="30"/>
+              <line x1="2"  y1="16" x2="6"  y2="16"/>
+              <line x1="26" y1="16" x2="30" y2="16"/>
+              <line x1="6"  y1="6"  x2="9"  y2="9"/>
+              <line x1="23" y1="23" x2="26" y2="26"/>
+              <line x1="6"  y1="26" x2="9"  y2="23"/>
+              <line x1="23" y1="9"  x2="26" y2="6"/>
+            </g>
+          </svg>
+        </span>
+        <span class="logo-text">Sun<span>Square</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#solutions">Solutions</a>
+        <a href="#how">How It Works</a>
+        <a href="#calculator">Savings Calculator</a>
+        <a href="#why">Why SunSquare</a>
+        <a href="#faq">FAQs</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#quote" class="btn btn-primary">Get Free Quote</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="dot"></span> Powered by the sun · Backed by India
+        </div>
+        <h1>
+          Cut your power bill by <span class="highlight">up to 90%</span> with rooftop solar.
+        </h1>
+        <p class="lead">
+          Design, financing, installation, and 25-year warranty — all under one roof.
+          Get a personalised solar plan for your home in under 60 seconds.
+        </p>
+
+        <form class="hero-form" id="heroForm" novalidate>
+          <div class="hero-field">
+            <label for="heroBill">Your average monthly bill</label>
+            <div class="input-prefix">
+              <span>&#8377;</span>
+              <input id="heroBill" type="number" min="500" placeholder="e.g. 3500" required />
+            </div>
+          </div>
+          <div class="hero-field">
+            <label for="heroCity">Your city</label>
+            <select id="heroCity" required>
+              <option value="">Select city</option>
+              <option>Mumbai</option>
+              <option>Delhi NCR</option>
+              <option>Bengaluru</option>
+              <option>Pune</option>
+              <option>Hyderabad</option>
+              <option>Chennai</option>
+              <option>Ahmedabad</option>
+              <option>Kolkata</option>
+              <option>Jaipur</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg">Estimate Savings &rarr;</button>
+        </form>
+
+        <div class="hero-stats">
+          <div><strong>50,000+</strong><span>Homes powered</span></div>
+          <div><strong>420 MW</strong><span>Installed</span></div>
+          <div><strong>4.8&#9733;</strong><span>Customer rating</span></div>
         </div>
       </div>
-      <div class="header-meta">
-        <div class="header-fy">&#8377;197.1 Cr GMV</div>
-        <div class="header-date">FULL YEAR · APR'25 – MAR'26 · 2,193 TRANSACTIONS</div>
-      </div>
-    </header>
 
-    <!-- KPI CARDS -->
-    <div class="section-label">Key Performance Indicators</div>
-    <div class="kpi-grid">
-      <div class="kpi-card accent">
-        <div class="kpi-label">Total GMV</div>
-        <div class="kpi-value orange">197.1<span class="kpi-unit">Cr</span></div>
-        <div class="kpi-sub">Apr'25 – Mar'26</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Gross Profit</div>
-        <div class="kpi-value teal">6.24<span class="kpi-unit">Cr</span></div>
-        <div class="kpi-sub">3.17% avg margin</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Total Transactions</div>
-        <div class="kpi-value">2,193</div>
-        <div class="kpi-sub">182 / month avg</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Peak Month</div>
-        <div class="kpi-value">Jan<span class="kpi-unit">'26</span></div>
-        <div class="kpi-sub">&#8377;24.9 Cr · 352 txns</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Best GP%</div>
-        <div class="kpi-value">5.65<span class="kpi-unit">%</span></div>
-        <div class="kpi-sub">Nov'25 · &#8377;95.5L GP</div>
-      </div>
-    </div>
-
-    <!-- SUMMARY STRIP -->
-    <div class="summary-strip">
-      <div class="strip-item"><div class="strip-val">8</div><div class="strip-label">Active Categories</div></div>
-      <div class="strip-item"><div class="strip-val">12</div><div class="strip-label">Contributors Ranked</div></div>
-      <div class="strip-item"><div class="strip-val">Biomass</div><div class="strip-label">Top GMV Category</div></div>
-      <div class="strip-item"><div class="strip-val">HM Pole</div><div class="strip-label">Top Margin (15.98%)</div></div>
-      <div class="strip-item"><div class="strip-val">Sumit</div><div class="strip-label">#1 Contributor</div></div>
-      <div class="strip-item"><div class="strip-val">2,182</div><div class="strip-label">Assigned Txns</div></div>
-      <div class="strip-item"><div class="strip-val">&#8377;5.52 Cr</div><div class="strip-label">Distributed GP</div></div>
-    </div>
-
-    <!-- MAIN GRID -->
-    <div class="main-grid">
-      <div class="card">
-        <div class="card-title">
-          Monthly GMV vs Gross Profit
-          <div class="chart-legend">
-            <span class="legend-pill orange-pill">GMV</span>
-            <span class="legend-pill teal-pill">GP</span>
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-card float-a">
+          <div class="hc-label">Monthly savings</div>
+          <div class="hc-value">&#8377;3,240</div>
+          <div class="hc-bar"><div class="hc-bar-fill" style="width:82%"></div></div>
+          <div class="hc-sub">82% offset · Payback in 3.4 yrs</div>
+        </div>
+        <div class="hero-house">
+          <svg viewBox="0 0 420 320" width="100%" height="100%">
+            <defs>
+              <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0" stop-color="#FFE9B0"/>
+                <stop offset="1" stop-color="#FFF7E1"/>
+              </linearGradient>
+              <linearGradient id="panelGrad" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#1E3A8A"/>
+                <stop offset="1" stop-color="#3B82F6"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="420" height="320" fill="url(#sky)" rx="24"/>
+            <circle cx="340" cy="70" r="34" fill="#FFB020"/>
+            <g stroke="#FFB020" stroke-width="3" stroke-linecap="round">
+              <line x1="340" y1="18" x2="340" y2="30"/>
+              <line x1="340" y1="110" x2="340" y2="122"/>
+              <line x1="288" y1="70" x2="300" y2="70"/>
+              <line x1="380" y1="70" x2="392" y2="70"/>
+              <line x1="303" y1="33" x2="311" y2="41"/>
+              <line x1="369" y1="99" x2="377" y2="107"/>
+              <line x1="303" y1="107" x2="311" y2="99"/>
+              <line x1="369" y1="41" x2="377" y2="33"/>
+            </g>
+            <!-- house -->
+            <polygon points="60,190 210,110 360,190" fill="#F1FAF5" stroke="#0F172A" stroke-width="2"/>
+            <rect x="80" y="190" width="260" height="110" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+            <rect x="180" y="220" width="60" height="80" fill="#1E3A8A"/>
+            <rect x="100" y="220" width="50" height="50" fill="#E5F3EE" stroke="#0F172A"/>
+            <rect x="270" y="220" width="50" height="50" fill="#E5F3EE" stroke="#0F172A"/>
+            <!-- panels -->
+            <g transform="translate(120,130) rotate(-28)">
+              <rect width="150" height="72" fill="url(#panelGrad)" rx="4"/>
+              <g stroke="#93C5FD" stroke-width="1">
+                <line x1="0" y1="24" x2="150" y2="24"/>
+                <line x1="0" y1="48" x2="150" y2="48"/>
+                <line x1="50" y1="0" x2="50" y2="72"/>
+                <line x1="100" y1="0" x2="100" y2="72"/>
+              </g>
+            </g>
+            <g transform="translate(210,152) rotate(28)">
+              <rect width="120" height="60" fill="url(#panelGrad)" rx="4"/>
+              <g stroke="#93C5FD" stroke-width="1">
+                <line x1="0" y1="20" x2="120" y2="20"/>
+                <line x1="0" y1="40" x2="120" y2="40"/>
+                <line x1="40" y1="0" x2="40" y2="60"/>
+                <line x1="80" y1="0" x2="80" y2="60"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-card float-b">
+          <div class="hc-icon">&#9889;</div>
+          <div>
+            <div class="hc-label">Generated today</div>
+            <div class="hc-value small">42.8 kWh</div>
           </div>
         </div>
-        <div class="bar-chart" id="barChart"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          Team Contribution Ranking
-          <span class="card-badge">FY26</span>
-        </div>
-        <div class="team-list" id="teamList"></div>
       </div>
     </div>
+  </section>
 
-    <!-- BOTTOM GRID -->
-    <div class="bottom-grid">
-      <div class="card">
-        <div class="card-title">Category Performance</div>
-        <table class="cat-table"><tbody id="catTable"></tbody></table>
+  <!-- LOGO STRIP -->
+  <section class="strip">
+    <div class="container">
+      <p class="strip-label">Trusted by homeowners & partners across India</p>
+      <div class="strip-logos">
+        <span>Tata Power</span><span>&bull;</span>
+        <span>Waaree</span><span>&bull;</span>
+        <span>Adani Solar</span><span>&bull;</span>
+        <span>Vikram Solar</span><span>&bull;</span>
+        <span>Luminous</span><span>&bull;</span>
+        <span>MNRE Approved</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span> Our Solutions</div>
+        <h2>Rooftop solar, built for the way you live</h2>
+        <p>From your first bulb to your last EV charge — one solar system that pays for itself.</p>
       </div>
 
-      <div class="card">
-        <div class="card-title">GP Margin by Category</div>
-        <div id="marginBars"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          Contribution Breakdown (Top 5)
-          <span class="card-badge">Role-split</span>
+      <div class="cards-grid">
+        <div class="feature-card">
+          <div class="feature-icon icon-home">&#127968;</div>
+          <h3>Residential Solar</h3>
+          <p>Grid-tied systems from 1 kW to 10 kW for villas, bungalows, and independent homes.</p>
+          <ul>
+            <li>Net metering &amp; state subsidies handled for you</li>
+            <li>Monocrystalline panels, 25-yr warranty</li>
+            <li>Smart app to track generation live</li>
+          </ul>
         </div>
-        <div id="contribBreakdown"></div>
-        <div class="contrib-legend">
-          <div class="section-label" style="margin-top:14px;margin-bottom:8px;">Legend</div>
-          <div class="contrib-legend-pills">
-            <span><span class="dot" style="background:var(--orange)"></span>Sales 30%</span>
-            <span><span class="dot" style="background:var(--teal)"></span>Procurement 30%</span>
-            <span><span class="dot" style="background:var(--gold)"></span>Others 30%</span>
-            <span><span class="dot" style="background:#8b5cf6"></span>Sales Ops 10%</span>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-society">&#127970;</div>
+          <h3>Housing Society Solar</h3>
+          <p>Common-area and rooftop-sharing systems for apartments and gated communities.</p>
+          <ul>
+            <li>Zero-capex OPEX model available</li>
+            <li>Reduce maintenance charges by 40%+</li>
+            <li>Compliance &amp; society approvals included</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-battery">&#128267;</div>
+          <h3>Battery Backup + Solar</h3>
+          <p>Hybrid solar with lithium storage — power through outages, day or night.</p>
+          <ul>
+            <li>Runs ACs, fridges &amp; wifi during cuts</li>
+            <li>10-year battery warranty</li>
+            <li>Modular — start at 3 kWh, scale anytime</li>
+          </ul>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-ev">&#128665;</div>
+          <h3>Solar + EV Charger</h3>
+          <p>Charge your EV on sunshine. Bundled solar + 7 kW home charger with smart scheduling.</p>
+          <ul>
+            <li>Cut EV running cost to &#8377;0.50/km</li>
+            <li>OCPP-compliant, app controlled</li>
+            <li>Works with all Indian EV models</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-dark" id="how">
+    <div class="container">
+      <div class="section-head light">
+        <div class="eyebrow eyebrow-light"><span class="dot"></span> How It Works</div>
+        <h2>Solar in 4 simple steps. Live in 7 days.</h2>
+        <p>We handle the paperwork, permissions, and every panel bolt — so you don't have to.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h4>Free site survey</h4>
+          <p>Our engineer visits your rooftop, measures shading and load, and shares a system design.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h4>Custom proposal</h4>
+          <p>Transparent quote with subsidy, EMI options, generation forecast and payback period.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h4>Installation in 5 days</h4>
+          <p>Certified crew installs Tier-1 panels, inverter, and safety gear — with zero mess.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h4>Net-meter &amp; go live</h4>
+          <p>We coordinate DISCOM inspection and switch on your system with a live monitoring app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section" id="calculator">
+    <div class="container calc-wrap">
+      <div class="calc-copy">
+        <div class="eyebrow"><span class="dot"></span> Savings Calculator</div>
+        <h2>See how much you'll save in 25 years.</h2>
+        <p>Drag the sliders below. Numbers update live, based on average tariffs, generation and inflation.</p>
+        <div class="calc-benefit">
+          <div><strong>&#8377;0</strong><span>Downpayment options</span></div>
+          <div><strong>25 yrs</strong><span>Panel warranty</span></div>
+          <div><strong>3-5 yrs</strong><span>Typical payback</span></div>
+        </div>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-row">
+          <label>
+            <span>Monthly electricity bill</span>
+            <span class="calc-value">&#8377;<output id="outBill">3500</output></span>
+          </label>
+          <input type="range" id="rngBill" min="1000" max="30000" step="100" value="3500" />
+        </div>
+
+        <div class="calc-row">
+          <label>
+            <span>Rooftop space available</span>
+            <span class="calc-value"><output id="outArea">400</output> sq ft</span>
+          </label>
+          <input type="range" id="rngArea" min="100" max="3000" step="10" value="400" />
+        </div>
+
+        <div class="calc-row">
+          <label>
+            <span>Sunshine (state average)</span>
+            <span class="calc-value"><output id="outSun">4.8</output> kWh/kW/day</span>
+          </label>
+          <input type="range" id="rngSun" min="3.5" max="6.0" step="0.1" value="4.8" />
+        </div>
+
+        <div class="calc-results">
+          <div class="calc-result">
+            <span class="cr-label">Recommended system</span>
+            <span class="cr-value" id="resSys">3.5 kW</span>
+          </div>
+          <div class="calc-result">
+            <span class="cr-label">Monthly savings</span>
+            <span class="cr-value orange" id="resMonth">&#8377;2,940</span>
+          </div>
+          <div class="calc-result">
+            <span class="cr-label">25-year savings</span>
+            <span class="cr-value green" id="resLife">&#8377;13.2 L</span>
+          </div>
+          <div class="calc-result">
+            <span class="cr-label">CO&#8322; offset (25 yrs)</span>
+            <span class="cr-value" id="resCo2">78 tonnes</span>
+          </div>
+        </div>
+
+        <a href="#quote" class="btn btn-primary btn-block">Book Free Site Survey</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="section section-soft" id="why">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span> Why SunSquare</div>
+        <h2>Everything you need. Nothing you don't.</h2>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <h4>End-to-end ownership</h4>
+          <p>Design, permits, subsidy, installation, monitoring &mdash; one company, one accountable team.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <h4>Tier-1 hardware only</h4>
+          <p>We use monocrystalline PERC panels &amp; MPPT inverters from the world's top manufacturers.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <h4>Flexible financing</h4>
+          <p>Pay upfront, 0% EMI for 12 months, or subscribe monthly with our no-cost solar plan.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">04</div>
+          <h4>Care for 25 years</h4>
+          <p>Annual cleaning, performance guarantees and dedicated technicians on call in your city.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="stories">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span> Customer Stories</div>
+        <h2>50,000+ Indian homes are saving. Here's what they say.</h2>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"My bill dropped from &#8377;7,800 to &#8377;620 in the very first month. Installation was clean and the team walked us through the app patiently."</p>
+          <div class="testi-meta">
+            <div class="avatar" style="background:#FEE2B0">RM</div>
+            <div>
+              <strong>Rohan Mehta</strong>
+              <span>5 kW &middot; Pune</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"The site survey engineer was very honest &mdash; he told me I only needed a 3 kW system, not the 5 kW another vendor pushed. Saved me &#8377;80,000 upfront."</p>
+          <div class="testi-meta">
+            <div class="avatar" style="background:#D0EBE0">AK</div>
+            <div>
+              <strong>Aishwarya Kulkarni</strong>
+              <span>3 kW &middot; Bengaluru</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p>"Our society of 84 flats went solar with SunSquare's zero-capex plan. Maintenance fees dropped by 45% and everyone's happy."</p>
+          <div class="testi-meta">
+            <div class="avatar" style="background:#CFE0FF">VS</div>
+            <div>
+              <strong>Vivek Sharma</strong>
+              <span>62 kW society &middot; Mumbai</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-  </div><!-- /wrapper -->
+  <!-- FAQ -->
+  <section class="section section-soft" id="faq">
+    <div class="container faq-wrap">
+      <div class="section-head align-left">
+        <div class="eyebrow"><span class="dot"></span> Frequently Asked</div>
+        <h2>Answers before you ask.</h2>
+        <p>Still have questions? <a href="#quote">Talk to a solar expert</a> &mdash; free consultation, no pressure.</p>
+      </div>
 
-  <script src="data/scorecard.js"></script>
-  <script src="js/charts.js"></script>
+      <div class="faq-list" id="faqList">
+        <details>
+          <summary>How much does a rooftop solar system cost in India?</summary>
+          <p>A quality 3 kW residential system costs between &#8377;1.8&ndash;2.4 lakh before subsidy. After central and state subsidies, effective cost is typically &#8377;1.2&ndash;1.6 lakh. EMI plans start at &#8377;2,500/month.</p>
+        </details>
+        <details>
+          <summary>How much roof space do I need?</summary>
+          <p>Around 100 sq ft of shadow-free rooftop per 1 kW of solar. A 3 kW system needs roughly 300 sq ft. Our engineer will confirm this during the free site survey.</p>
+        </details>
+        <details>
+          <summary>What happens on cloudy days or at night?</summary>
+          <p>Grid-tied systems automatically draw from the grid when solar output is low, and export excess to the grid on sunny days through net metering &mdash; you're billed only on the net units.</p>
+        </details>
+        <details>
+          <summary>Do you handle the subsidy paperwork?</summary>
+          <p>Yes. We take care of the entire process on the National Portal for Rooftop Solar. The subsidy is transferred directly to your bank account after commissioning.</p>
+        </details>
+        <details>
+          <summary>What is the warranty?</summary>
+          <p>Solar panels: 25-year performance warranty, 12-year product warranty. Inverter: 5&ndash;10 years. Batteries (if opted): 10 years. Full workmanship warranty from SunSquare for 5 years.</p>
+        </details>
+        <details>
+          <summary>How long does installation take?</summary>
+          <p>Physical installation is typically completed in 3&ndash;5 days. Full commissioning (including DISCOM approval and net-meter installation) takes 3&ndash;6 weeks depending on your state.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE / CTA -->
+  <section class="section cta" id="quote">
+    <div class="container cta-wrap">
+      <div class="cta-copy">
+        <h2>Ready to switch to solar?</h2>
+        <p>Book a free, no-obligation site survey. Our engineer will visit your rooftop, share a personalised design, and answer every question.</p>
+        <ul class="cta-list">
+          <li>&#10003; Free rooftop survey worth &#8377;2,500</li>
+          <li>&#10003; Transparent proposal with subsidy &amp; EMI</li>
+          <li>&#10003; No pushy sales &mdash; we promise</li>
+        </ul>
+      </div>
+
+      <form class="quote-form" id="quoteForm" novalidate>
+        <h3>Get your free quote</h3>
+        <div class="grid-2">
+          <div class="field">
+            <label for="qName">Full name</label>
+            <input id="qName" type="text" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="qPhone">Mobile number</label>
+            <input id="qPhone" type="tel" placeholder="10-digit mobile" pattern="[0-9]{10}" required />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="qCity">City</label>
+            <input id="qCity" type="text" placeholder="e.g. Bengaluru" required />
+          </div>
+          <div class="field">
+            <label for="qBill">Monthly bill (&#8377;)</label>
+            <input id="qBill" type="number" min="500" placeholder="e.g. 4000" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="qType">Property type</label>
+          <select id="qType" required>
+            <option value="">Select property type</option>
+            <option>Independent house / villa</option>
+            <option>Apartment (my flat only)</option>
+            <option>Housing society (common area)</option>
+            <option>Commercial / office</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Request Free Survey</button>
+        <p class="disclaimer">By submitting, you agree to be contacted by SunSquare. We respect your data &mdash; no spam.</p>
+
+        <div class="quote-success" id="quoteSuccess" hidden>
+          <div class="qs-icon">&#10003;</div>
+          <h4>Thank you!</h4>
+          <p>Our solar advisor will call you within 2 business hours.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo footer-logo">
+          <span class="logo-mark small">
+            <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+              <circle cx="16" cy="16" r="6" fill="#FFB020"/>
+              <g stroke="#FFB020" stroke-width="2.4" stroke-linecap="round">
+                <line x1="16" y1="2"  x2="16" y2="6"/>
+                <line x1="16" y1="26" x2="16" y2="30"/>
+                <line x1="2"  y1="16" x2="6"  y2="16"/>
+                <line x1="26" y1="16" x2="30" y2="16"/>
+                <line x1="6"  y1="6"  x2="9"  y2="9"/>
+                <line x1="23" y1="23" x2="26" y2="26"/>
+                <line x1="6"  y1="26" x2="9"  y2="23"/>
+                <line x1="23" y1="9"  x2="26" y2="6"/>
+              </g>
+            </svg>
+          </span>
+          <span class="logo-text">Sun<span>Square</span></span>
+        </a>
+        <p>India's most trusted rooftop solar company. Cleaner power, lower bills, for every home.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <a href="#solutions">Residential Solar</a>
+        <a href="#solutions">Housing Societies</a>
+        <a href="#solutions">Battery Backup</a>
+        <a href="#solutions">Solar + EV</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#">About us</a>
+        <a href="#">Careers</a>
+        <a href="#">Media</a>
+        <a href="#stories">Customer stories</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <a href="tel:+911800123456">1800-123-456</a>
+        <a href="mailto:hello@sunsquare.in">hello@sunsquare.in</a>
+        <a href="#">Mumbai &middot; Bengaluru &middot; Delhi<br />+ 18 more cities</a>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <span>&copy; 2026 SunSquare Energy Pvt. Ltd.</span>
+      <span>Privacy &middot; Terms &middot; MNRE Registered</span>
+    </div>
+  </footer>
+
   <script src="js/app.js"></script>
 </body>
 </html>
